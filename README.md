@@ -34,3 +34,8 @@ npx prisma db seed
 ```bash
 npm run dev
 ```
+
+### 7. Link da aplicação na Vercel
+```bash
+https://vocegpt-omega.vercel.app/
+```
