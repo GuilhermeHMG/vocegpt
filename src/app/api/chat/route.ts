@@ -66,7 +66,9 @@ export async function POST(req: Request) {
     }
 
     if (
-        lowerCaseText.includes('onde o guilherme mora')
+        lowerCaseText.includes('onde o guilherme mora') ||
+        lowerCaseText.includes('qual é o endereço do guilherme') ||
+        lowerCaseText.includes('onde ele mora')
     ) {
         await delay(1000);
         return NextResponse.json({ answer: userInfo.address });
