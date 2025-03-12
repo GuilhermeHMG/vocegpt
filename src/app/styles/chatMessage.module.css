@@ -1,0 +1,37 @@
+body {
+    background-image: url('/images/wallpaper.jpg');
+    background-size: cover; /* Faz com que a textura cubra toda a área */
+    background-repeat: no-repeat; /* Não repete a textura */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Por padrão, alinhado à esquerda */
+}
+
+.message {
+  max-width: 70%;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex; /* Adicionando flex para controlar o alinhamento corretamente */
+}
+
+.userMessage {
+  align-self: flex-end; /* Alinha à direita */
+  background-color: #e1ffc7;
+}
+
+.assistantMessage {
+  align-self: flex-start; /* Alinha à esquerda */
+  background-color: #f0f0f0;
+}
+
+.messageText {
+  word-wrap: break-word;
+}
+
+.darkModeText {
+  color: #000;
+}
