@@ -11,7 +11,7 @@ const Page = () => {
   useEffect(() => {
     setMessages([
       { 
-        text: `Olá! Eu sou o assistente virtual do Guilherme. O que gostaria de saber sobre ele? Pode fazer perguntas como:`, 
+        text: `Olá! Eu sou o assistente virtual do Guilherme. O que gostaria de saber sobre ele? Você pode fazer perguntas como:`, 
         sender: 'assistant' 
       },
       { 
