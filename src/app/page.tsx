@@ -30,27 +30,39 @@ const Page = () => {
 
   const handleSendMessage = async (text: string) => {
     setMessages((prevMessages) => [...prevMessages, { text, sender: "user" }]);
-
+  
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text }),
       });
-
-      const data = await response.json();
+  
+      console.log("Response status:", response.status);
+      console.log("Response headers:", response.headers);
+  
+      if (!response.ok) {
+        throw new Error(`Erro na API: ${response.status} - ${response.statusText}`);
+      }
+  
+      const textResponse = await response.text();
+      console.log("Raw response text:", textResponse);
+  
+      const data = JSON.parse(textResponse); // Convertendo manualmente para evitar erro no response.json()
+      console.log("Parsed JSON:", data);
+  
       let assistantMessage = data.answer || data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
-
+  
       if (!assistantMessage) {
         assistantMessage = "Desculpe, não consegui encontrar uma resposta para isso.";
       }
-
+  
       setMessages((prevMessages) => [...prevMessages, { text: assistantMessage, sender: "assistant" }]);
     } catch (error) {
       console.error("Erro ao buscar resposta da API:", error);
       setMessages((prevMessages) => [...prevMessages, { text: "Ocorreu um erro ao processar sua mensagem.", sender: "assistant" }]);
     }
-  };
+  };  
 
   return (
     <div className={styles.chatContainer}>
