@@ -132,6 +132,9 @@ export async function POST(req: Request) {
     });
 
     const data = await response.json();
+
+    console.log("data: ", data);
+
     await delay(1000);
     return NextResponse.json(data);
 }

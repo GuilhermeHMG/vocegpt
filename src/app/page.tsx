@@ -7,7 +7,7 @@ import styles from "./styles/chat.module.css";
 
 const Page = () => {
   const [messages, setMessages] = useState<{ text: string; sender: string }[]>([]);
-  const messagesEndRef = useRef<HTMLDivElement | null>(null); // Referência para rolagem automática
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setMessages([
@@ -18,13 +18,12 @@ const Page = () => {
       { text: `"Qual é o github do Guilherme?"`, sender: "assistant" },
       { text: `"Onde ele mora?"`, sender: "assistant" },
       { text: `"Conte-me sobre a vida profissional do Guilherme"`, sender: "assistant" },
-      { text: `"Conta-me sobre a vida pessoal do Guilherme"`, sender: "assistant" },
+      { text: `"Conte-me sobre a vida pessoal do Guilherme"`, sender: "assistant" },
       { text: `"Por que querer trabalhar na Embracon?"`, sender: "assistant" },
-      { text: `"Caso queira ver novamente as perguntas, envie 'mostre-me as perguntas' ;) Fique à vontade!"`, sender: "assistant" },
+      { text: `"Há! Caso queira ver novamente as perguntas, envie 'mostre-me as perguntas' ;) Fique à vontade!"`, sender: "assistant" },
     ]);
   }, []);
 
-  // Sempre rola para o final ao atualizar mensagens
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -59,7 +58,6 @@ const Page = () => {
         {messages.map((message, index) => (
           <ChatMessage key={index} message={message} />
         ))}
-        {/* Referência invisível para rolar automaticamente */}
         <div ref={messagesEndRef} />
       </div>
       <ChatInput onSendMessage={handleSendMessage} />

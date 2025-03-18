@@ -21,3 +21,10 @@ model UserInfo {
   justification   String @db.Text
   questions       String @db.Text
 }
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  text      String @db.Text
+  sender    String @db.Text
+  createdAt DateTime @default(now())
+}
