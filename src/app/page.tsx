@@ -39,7 +39,6 @@ const Page = () => {
       });
   
       console.log("Response status:", response);
-      console.log("Response headers:", response.headers);
   
       if (!response.ok) {
         throw new Error(`Erro na API: ${response.status} - ${response.statusText}`);
