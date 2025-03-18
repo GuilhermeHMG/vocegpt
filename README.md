@@ -25,6 +25,11 @@ npx tailwindcss init
 npm install tsx --save-dev
 ```
 
+### 5. Rodar migrate
+```bash
+prisma migrate dev
+```
+
 ### 5. Preencha o banco de dados com os dados iniciais
 ```bash
 npx prisma db seed
