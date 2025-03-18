@@ -38,7 +38,7 @@ const Page = () => {
         body: JSON.stringify({ text }),
       });
   
-      console.log("Response status:", response.status);
+      console.log("Response status:", response);
       console.log("Response headers:", response.headers);
   
       if (!response.ok) {
