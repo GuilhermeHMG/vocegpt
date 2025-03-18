@@ -38,8 +38,6 @@ const Page = () => {
         body: JSON.stringify({ text }),
       });
   
-      console.log("Response status:", response);
-  
       if (!response.ok) {
         throw new Error(`Erro na API: ${response.status} - ${response.statusText}`);
       }
