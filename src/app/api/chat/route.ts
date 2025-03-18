@@ -10,6 +10,8 @@ function delay(ms: number) {
 export async function POST(req: Request) {
     const { text } = await req.json();
 
+    console.log(process.env.DATABABE_URL);
+    
     const userInfo = await prisma.userInfo.findFirst({
         where: {
             name: 'Guilherme',
